@@ -4,8 +4,8 @@ import '@pnotify/core/dist/BrightTheme.css';
 
 export function onNoCountry() {
   info({
-    title: 'Помилка! Σ(‘◉⌓◉’)',
-    text: 'Введіть коректно запит ...(Ukraine)',
+    title: 'Error',
+    text: 'Please check the name ...',
     delay: 2000,
     closerHover: true,
     mouseReset: true,
@@ -15,8 +15,8 @@ export function onNoCountry() {
 
 export function onOutputInfo() {
   error({
-    title: 'Знайдено забагато збігів Σ(‘◉⌓◉’)',
-    text: 'Будь ласка, введіть більш конкретний запит ...(USA)',
+    title: 'Too much found',
+    text: 'Please specify request ...',
     delay: 2000,
     closerHover: true,
     mouseReset: true,
@@ -24,5 +24,5 @@ export function onOutputInfo() {
   });
 }
 export function onError() {
-  alert('Дані для пошуку країни відсутні ... (；☉_☉)');
+  alert('There is no data to search');
 }
