@@ -18,21 +18,21 @@ function onSearch() {
     return;
   }
   API(inputEL.value)
-    .then(data => data.json())
+    .then(response => response.json())
     .then(countries => onCountrySearch(countries))
     .catch(error => onError(error));
 }
 
-function onCountrySearch(countries) {
-  if (countries.length === 1) {
+function onCountrySearch(array) {
+  if (array.length === 1) {
     clearContent();
-    return onAppendCountriesCard(countries);
-  } else if (countries.length >= 2 && countries.length <= 10) {
+    return onAppendCountriesCard(array);
+  } else if (array.length >= 2 && array.length <= 10) {
     clearContent();
-    return onAppendListCountries(countries);
-  } else if (countries.length > 10) {
+    return onAppendListCountries(array);
+  } else if (array.length > 10) {
     return onOutputInfo();
-  } else if (countries.status === 404) {
+  } else if (array.status === 404) {
     return onNoCountry();
   } else {
     return onError();
@@ -44,14 +44,14 @@ function clearContent() {
   countriesEL.innerHTML = '';
 }
 
-function onAppendListCountries(countries) {
-  countriesEL.insertAdjacentHTML('beforeend', countriesListTemplate(countries));
+function onAppendListCountries(array) {
+  countriesEL.insertAdjacentHTML('beforeend', countriesListTemplate(array));
 
   document.querySelector('.countries-list').addEventListener('click', onTargetValue);
 }
 
-function onAppendCountriesCard(countries) {
-  countriesEL.insertAdjacentHTML('beforeend', countriesCardTemplate(countries));
+function onAppendCountriesCard(array) {
+  countriesEL.insertAdjacentHTML('beforeend', countriesCardTemplate(array));
 }
 
 function onTargetValue(e) {
