@@ -9,12 +9,12 @@ import countriesCardTemplate from '../partials/countries-card.hbs';
 import refs from './refs.js';
 const { inputEL, countriesEL, clearBtnEL } = refs;
 
-inputEL.addEventListener('input', debounce(onSearch, 1000));
-clearBtnEL.addEventListener('click', onClearCountry);
+inputEL.addEventListener('input', debounce(onSearch, 1500));
+clearBtnEL.addEventListener('click', clearContent);
 
 function onSearch() {
   if (!inputEL.value) {
-    onClearCountry();
+    clearContent();
     return;
   }
   API(inputEL.value)
@@ -25,10 +25,10 @@ function onSearch() {
 
 function onCountrySearch(countries) {
   if (countries.length === 1) {
-    onClearCountry();
+    clearContent();
     return onAppendCountriesCard(countries);
   } else if (countries.length >= 2 && countries.length <= 10) {
-    onClearCountry();
+    clearContent();
     return onAppendListCountries(countries);
   } else if (countries.length > 10) {
     return onOutputInfo();
@@ -39,7 +39,7 @@ function onCountrySearch(countries) {
   }
 }
 
-function onClearCountry() {
+function clearContent() {
   inputEL.value = '';
   countriesEL.innerHTML = '';
 }
