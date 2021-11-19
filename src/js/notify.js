@@ -15,7 +15,7 @@ export function onNoCountry() {
 
 export function onOutputInfo() {
   error({
-    title: 'Too much found',
+    title: 'Too much results found',
     text: 'Please specify request ...',
     delay: 2000,
     closerHover: true,
