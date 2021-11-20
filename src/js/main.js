@@ -1,6 +1,6 @@
 import debounce from 'lodash.debounce';
 
-import API from './fetchCountries.js';
+import fetch from './fetchCountries.js';
 import { onOutputInfo, onNoCountry, onError } from './notify.js';
 
 import countriesListTemplate from '../partials/countries-list.hbs';
@@ -17,7 +17,7 @@ function onSearch() {
     clearContent();
     return;
   }
-  API(inputEL.value)
+  fetch(inputEL.value)
     .then(response => response.json())
     .then(countries => onCountrySearch(countries))
     .catch(error => onError(error));
@@ -58,7 +58,7 @@ function onTargetValue(e) {
   if (e.target.nodeName !== 'LI') {
     return;
   }
-  API(e.target.textContent)
+  fetch(e.target.textContent)
     .then(data => data.json())
     .then(onCountrySearch)
     .catch(error => onError(error));
