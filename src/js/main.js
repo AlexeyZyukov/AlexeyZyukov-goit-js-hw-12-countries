@@ -3,14 +3,25 @@ import debounce from 'lodash.debounce';
 import fetch from './fetchCountries.js';
 import { onOutputInfo, onNoCountry, onError } from './notify.js';
 
-import countriesListTemplate from '../partials/countries-list.hbs';
-import countriesCardTemplate from '../partials/countries-card.hbs';
+import countriesListTemplate from '../templates/countries-list.hbs'
+// '../partials/countries-list.hbs';
+import countriesCardTemplate from '../templates/countries-card.hbs';
 
 import refs from './refs.js';
 const { inputEL, countriesEL, clearBtnEL } = refs;
 
+// import ButtonEl from './button.js'
+
 inputEL.addEventListener('input', debounce(onSearch, 1500));
 clearBtnEL.addEventListener('click', clearContent);
+
+// const buttonClose = new ButtonEl({
+//   selector: '#button-clear-js',
+// })
+// // function onClickAction() {
+// //   clearContent()
+// // }
+// buttonClose.onClick();
 
 function onSearch() {
   if (!inputEL.value) {
@@ -39,7 +50,7 @@ function onCountrySearch(array) {
   }
 }
 
-function clearContent() {
+export function clearContent() {
   inputEL.value = '';
   countriesEL.innerHTML = '';
 }
