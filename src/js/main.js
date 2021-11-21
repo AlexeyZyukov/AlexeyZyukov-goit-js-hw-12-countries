@@ -11,13 +11,20 @@ import refs from './refs.js';
 const { inputEL, countriesEL, clearBtnEL } = refs;
 
 // import ButtonEl from './button.js'
-
-inputEL.addEventListener('input', debounce(onSearch, 1500));
-clearBtnEL.addEventListener('click', clearContent);
-
 // const buttonClose = new ButtonEl({
 //   selector: '#button-clear-js',
 // })
+
+// const buttonClose = new ButtonEl({
+  // selector: '#button-clear-js'
+// });
+
+inputEL.addEventListener('input', debounce(onSearch, 1500));
+clearBtnEL.addEventListener('click', clearContent);
+// buttonClose.addEventListener('click', () => buttonClose.onClickClear());
+  // () => buttonClose.onClickClear());
+
+
 // // function onClickAction() {
 // //   clearContent()
 // // }
