@@ -28,4 +28,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"./main.js":"d6sW"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/main.js"),require("./js/button.js");
 },{"./sass/main.scss":"clu1","./js/main.js":"d6sW","./js/button.js":"yyDo"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-11-color-switch/src.2bfe3d07.js.map
+//# sourceMappingURL=/goit-js-hw-12-countries/src.2bfe3d07.js.map
